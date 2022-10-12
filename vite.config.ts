@@ -38,6 +38,7 @@ export default defineConfig({
     UnoCSS({
       shortcuts: {
         'icon-btn': 'op30 hover:(op100 text-primary)',
+        'bg-content': 'bg-[#FEFEFE] dark:bg-gray-700',
       },
       theme: {
         fontFamily: {

@@ -9,6 +9,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     DarkToggle: typeof import('./src/components/DarkToggle.vue')['default']
     LangToggle: typeof import('./src/components/LangToggle.vue')['default']
+    ListTab: typeof import('./src/components/ListTab.vue')['default']
+    ListTodo: typeof import('./src/components/ListTodo.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
   }
 }

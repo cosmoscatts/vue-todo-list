@@ -1,3 +1,14 @@
 navbar:
   title: TODO LIST
+listTodo:
+  input:
+    newTodo: What needs to be done?
+  footer:
+    left: left
+    item: item
+    items: items
+    all: all
+    active: Active
+    completed: Completed
+    clearCompleted: Clear completed
 

@@ -8,6 +8,7 @@ const { t } = useI18n()
       {{ t('navbar.title') }}
     </h1>
     <div flex-auto />
+    <div icon-btn cursor-pointer i-carbon-menu md:hidden />
     <LangToggle />
     <a icon-btn i-carbon-logo-github href="https://github.com/cosmoscatts/vue-todo-list" target="_blank" title="GitHub" />
     <DarkToggle />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Navbar from './components/Navbar.vue'
+
 </script>
 
 <template>
@@ -9,6 +9,13 @@ import Navbar from './components/Navbar.vue'
     of-hidden mx-a
   >
     <Navbar />
+    <div
+      flex="~ gap-1vw"
+      h-80vh of-hidden
+    >
+      <ListTab />
+      <ListTodo />
+    </div>
   </div>
 </template>
 
