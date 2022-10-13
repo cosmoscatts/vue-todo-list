@@ -11,4 +11,6 @@ listTodo:
     active: Active
     completed: Completed
     clearCompleted: Clear completed
-
+listTab:
+  title: Space
+  addBtn: Add Tag (‾◡◝)

@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import type { TodoItem, Visibility } from '~/types'
 
-const STORAGE_KEY = 'vue-todo-list'
-
 const { t } = useI18n()
 
-const todoData = ref<TodoItem[]>(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
-todoData.value = [
-  { id: Date.now(), title: '爬山', completed: false },
-  { id: Date.now(), title: '旅游', completed: true },
-]
-watch(todoData, (val) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(val))
+const todoData = ref<TodoItem[]>(getTodoList())
+watch(selectedTab, () => {
+  todoData.value = getTodoList()
+})
+
+watch([todoData, selectedTab], ([x1, y1], [_x2, y2]) => {
+  if (y1 === y2)
+    setTodoList(x1)
 }, { deep: true })
 
 const editedTodo = ref<TodoItem | null>(null)

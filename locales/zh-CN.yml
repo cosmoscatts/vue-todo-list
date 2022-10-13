@@ -11,3 +11,6 @@ listTodo:
     active: 未完成
     completed: 已完成   
     clearCompleted: 清除已完成 
+listTab:
+  title: 个人空间
+  addBtn: 添加标签 (‾◡◝)

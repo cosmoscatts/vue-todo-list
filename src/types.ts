@@ -1,3 +1,8 @@
+export interface TabItem {
+  id: number
+  title?: string
+}
+
 export interface TodoItem {
   id: number
   title?: string
