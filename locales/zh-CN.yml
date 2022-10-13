@@ -5,8 +5,8 @@ listTodo:
     newTodo: 需要做点什么呢？
   footer:
     left: 剩余
-    item: 计划
-    items: 计划
+    item: 个计划
+    items: 个计划
     all: 全部
     active: 未完成
     completed: 已完成   

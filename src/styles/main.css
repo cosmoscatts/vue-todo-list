@@ -1,0 +1,14 @@
+@import './font.css';
+
+html {
+  height: 100vh;
+  width: 100vw;
+  background: #F5F5F5;
+  color: #4b5563;
+  overflow: hidden auto;
+}
+
+html.dark {
+  background: #1f2937;
+  color: #FEFEFE;
+}
