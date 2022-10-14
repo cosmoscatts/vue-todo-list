@@ -63,8 +63,8 @@ const isTabSelected = (id: number) => id === selectedTab.value
 </script>
 
 <template>
-  <div w-21vw lt-md:hidden flex="~ col" p-2>
-    <div bg-content h-full>
+  <div w-21vw flex="~ col" p-2>
+    <div bg-content lt-md="!bg-transparent" h-full>
       <h3 text="24px primary center" font-bold py-15px border-b="2px dashed primary">
         {{ t('listTab.title') }}
       </h3>

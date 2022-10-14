@@ -40,6 +40,7 @@ declare global {
   const getTabList: typeof import('./src/composables/store')['getTabList']
   const getTodoList: typeof import('./src/composables/store')['getTodoList']
   const h: typeof import('vue')['h']
+  const hideLeftListTag: typeof import('./src/composables/responsive')['hideLeftListTag']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./src/composables/dark')['isDark']
@@ -48,6 +49,7 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const leftListTagVisibility: typeof import('./src/composables/responsive')['leftListTagVisibility']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
@@ -103,6 +105,7 @@ declare global {
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
   const toggleDark: typeof import('./src/composables/dark')['toggleDark']
+  const toggleLeftListTag: typeof import('./src/composables/responsive')['toggleLeftListTag']
   const triggerRef: typeof import('vue')['triggerRef']
   const tryOnBeforeMount: typeof import('@vueuse/core')['tryOnBeforeMount']
   const tryOnBeforeUnmount: typeof import('@vueuse/core')['tryOnBeforeUnmount']
@@ -318,6 +321,7 @@ declare module '@vue/runtime-core' {
     readonly getTabList: UnwrapRef<typeof import('./src/composables/store')['getTabList']>
     readonly getTodoList: UnwrapRef<typeof import('./src/composables/store')['getTodoList']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly hideLeftListTag: UnwrapRef<typeof import('./src/composables/responsive')['hideLeftListTag']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
@@ -326,6 +330,7 @@ declare module '@vue/runtime-core' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly leftListTagVisibility: UnwrapRef<typeof import('./src/composables/responsive')['leftListTagVisibility']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -381,6 +386,7 @@ declare module '@vue/runtime-core' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toggleDark: UnwrapRef<typeof import('./src/composables/dark')['toggleDark']>
+    readonly toggleLeftListTag: UnwrapRef<typeof import('./src/composables/responsive')['toggleLeftListTag']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryOnBeforeMount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeMount']>
     readonly tryOnBeforeUnmount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeUnmount']>

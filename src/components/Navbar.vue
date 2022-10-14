@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
+
+const toggle = toggleLeftListTag
 </script>
 
 <template>
@@ -8,7 +10,7 @@ const { t } = useI18n()
       {{ t('navbar.title') }}
     </h1>
     <div flex-auto />
-    <div icon-btn cursor-pointer i-carbon-menu md:hidden />
+    <div icon-btn cursor-pointer i-carbon-menu md:hidden @click="toggle" />
     <LangToggle />
     <a icon-btn i-carbon-logo-github href="https://github.com/cosmoscatts/vue-todo-list" target="_blank" title="GitHub" />
     <DarkToggle />
