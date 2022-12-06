@@ -58,18 +58,14 @@ export function getTabList(): TabItem[] {
 export function getTodoList(): TodoItem[] {
   const todoStr = localStorage.getItem(TODO_STORAGE_KEY)
 
-  if (!todoStr || !selectedTab.value)
-    return []
+  if (!todoStr || !selectedTab.value) return []
 
   return JSON.parse(todoStr)[selectedTab.value] || []
 }
 
 export function setTodoList(data: TodoItem[]) {
-  if (!selectedTab.value)
-    return
-
+  if (!selectedTab.value) return
   const todoStr = localStorage.getItem(TODO_STORAGE_KEY)
-
   const newData: Record<number, TodoItem[]> = {}
   newData[selectedTab.value] = [...data]
 
@@ -90,14 +86,14 @@ export function setTabList(data: TabItem[]) {
  */
 export function removeTabEffect(tab: TabItem) {
   const todoStr = localStorage.getItem(TODO_STORAGE_KEY)
-  if (!todoStr)
-    return
+  if (!todoStr) return
 
   const newData: Record<number, TabItem[]> = {}
   const data = JSON.parse(todoStr) || []
   for (const key of Object.keys(data)) {
-    if (Number(key) !== tab.id)
+    if (Number(key) !== tab.id) {
       newData[Number(key)] = data[key]
+    }
   }
   localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify({
     ...newData,

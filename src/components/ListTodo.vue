@@ -9,8 +9,9 @@ watch(selectedTab, () => {
 })
 
 watch([todoData, selectedTab], ([x1, y1], [_x2, y2]) => {
-  if (y1 === y2)
+  if (y1 === y2) {
     setTodoList(x1)
+  }
 }, { deep: true })
 
 const editedTodo = ref<TodoItem | null>(null)
@@ -48,13 +49,11 @@ function editTodo(todo: TodoItem) {
 }
 
 function doneEdit(todo: TodoItem) {
-  if (!editedTodo.value)
-    return
+  if (!editedTodo.value) return
 
   editedTodo.value = null
   todo.title = todo.title?.trim()
-  if (!todo.title)
-    removeTodo(todo)
+  if (!todo.title) removeTodo(todo)
 }
 
 function cancelEdit(todo: TodoItem) {
@@ -75,8 +74,7 @@ function onHashChange() {
   const _visibility = window.location.hash.replace(/#\/?/, '')
   if (Object.keys(filters).includes(_visibility)) {
     visibility.value = _visibility as Visibility
-  }
-  else {
+  } else {
     window.location.hash = ''
     visibility.value = 'all' as const
   }
@@ -122,7 +120,9 @@ onMounted(() => {
     <footer v-show="todoData.length" class="footer" bg-content>
       <span class="todo-count">
         <strong>{{ remaining }}</strong>
-        <span>{{ remaining === 1 ? t('listTodo.footer.item') : t('listTodo.footer.items') }} {{ t('listTodo.footer.left') }}</span>
+        <span>{{ remaining === 1 ? t('listTodo.footer.item') : t('listTodo.footer.items') }} {{
+          t('listTodo.footer.left')
+        }}</span>
       </span>
       <ul class="filters">
         <li>
@@ -132,7 +132,8 @@ onMounted(() => {
           <a href="#/active" :class="{ selected: visibility === 'active' }">{{ t('listTodo.footer.active') }}</a>
         </li>
         <li>
-          <a href="#/completed" :class="{ selected: visibility === 'completed' }">{{ t('listTodo.footer.completed') }}</a>
+          <a href="#/completed" :class="{ selected: visibility === 'completed' }">{{ t('listTodo.footer.completed')
+          }}</a>
         </li>
       </ul>
       <button v-show="todoData.length > remaining" class="clear-completed" @click="removeCompleted">

@@ -2,9 +2,7 @@
 import type { TabItem } from '~/types'
 
 const { t } = useI18n()
-
 const tabData = ref(getTabList())
-
 watch(tabData, setTabList, { deep: true })
 
 const editedTab = ref<TabItem | null>(null)
@@ -17,17 +15,14 @@ function changeSelectedTab(val: number) {
 function addTab(e: KeyboardEvent) {
   const target = e.target as HTMLTextAreaElement
   const title = target.value.trim()
-  if (!title)
-    return
+  if (!title) return
 
   const id = Date.now()
   tabData.value.push({
     id,
     title,
   })
-
   selectedTab.value = id
-
   target.value = ''
 }
 
@@ -37,13 +32,11 @@ function editTab(tab: TabItem) {
 }
 
 function doneEdit(tab: TabItem) {
-  if (!editedTab.value)
-    return
+  if (!editedTab.value) return
 
   editedTab.value = null
   tab.title = tab.title?.trim()
-  if (!tab.title)
-    removeTab(tab)
+  if (!tab.title) removeTab(tab)
 }
 
 function cancelEdit(tab: TabItem) {
@@ -54,8 +47,9 @@ function cancelEdit(tab: TabItem) {
 function removeTab(tab: TabItem) {
   const { value: data } = tabData
   data.splice(data.indexOf(tab), 1)
-  if (tab.id === selectedTab.value)
+  if (tab.id === selectedTab.value) {
     selectedTab.value = tabData.value[0].id
+  }
   removeTabEffect(tab)
 }
 
