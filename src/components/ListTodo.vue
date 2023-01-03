@@ -25,49 +25,14 @@ const filters = {
 }
 
 const filteredTodoData = computed(() => filters[visibility.value](todoData.value))
-
 const remaining = computed(() => filters.active(todoData.value).length)
 
-function addTodo(e: KeyboardEvent) {
-  const target = e.target as HTMLTextAreaElement
-  const value = target.value.trim()
-  if (!value)
-    return
-
-  todoData.value.push({
-    id: Date.now(),
-    title: value,
-    completed: false,
-  })
-
-  target.value = ''
-}
-
-function editTodo(todo: TodoItem) {
-  beforeEditCache.value = todo.title
-  editedTodo.value = todo
-}
-
-function doneEdit(todo: TodoItem) {
-  if (!editedTodo.value) return
-
-  editedTodo.value = null
-  todo.title = todo.title?.trim()
-  if (!todo.title) removeTodo(todo)
-}
+const removeTodo = (todo: TodoItem) => todoData.value.splice(todoData.value.indexOf(todo), 1)
+const removeCompleted = () => todoData.value = filters.active(todoData.value)
 
 function cancelEdit(todo: TodoItem) {
   editedTodo.value = null
   todo.title = beforeEditCache.value
-}
-
-function removeTodo(todo: TodoItem) {
-  const { value: data } = todoData
-  data.splice(data.indexOf(todo), 1)
-}
-
-function removeCompleted() {
-  todoData.value = filters.active(todoData.value)
 }
 
 function onHashChange() {
@@ -80,9 +45,31 @@ function onHashChange() {
   }
 }
 
-function toggleAll(e: any) {
-  todoData.value.forEach(todo => (todo.completed = e.target.checked))
+function addTodo(e: KeyboardEvent) {
+  const target = e.target as HTMLTextAreaElement
+  const value = target.value.trim()
+  if (!value) return
+  todoData.value.push({
+    id: Date.now(),
+    title: value,
+    completed: false,
+  })
+  target.value = ''
 }
+
+function editTodo(todo: TodoItem) {
+  beforeEditCache.value = todo.title
+  editedTodo.value = todo
+}
+
+function doneEdit(todo: TodoItem) {
+  if (!editedTodo.value) return
+  editedTodo.value = null
+  todo.title = todo.title?.trim()
+  if (!todo.title) removeTodo(todo)
+}
+
+const toggleAll = (e: any) => todoData.value.forEach(todo => (todo.completed = e.target.checked))
 
 const borderColor = computed(() => isDark.value ? '#4b5563' : '#ededed')
 const footerBoxShadowColor = computed(() => isDark.value ? '#333B48' : '#F6F6F6')

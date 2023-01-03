@@ -8,9 +8,7 @@ watch(tabData, setTabList, { deep: true })
 const editedTab = ref<TabItem | null>(null)
 const beforeEditCache = ref<string | undefined>()
 
-function changeSelectedTab(val: number) {
-  selectedTab.value = val
-}
+const changeSelectedTab = (val: number) => selectedTab.value = val
 
 function addTab(e: KeyboardEvent) {
   const target = e.target as HTMLTextAreaElement

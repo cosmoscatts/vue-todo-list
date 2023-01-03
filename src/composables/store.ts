@@ -24,12 +24,8 @@ function generateDefault(): { defaultTabs: TabItem[]; defaultTodos: Record<strin
 
 const { defaultTabs, defaultTodos } = generateDefault()
 
-// 选中的 `tab`
 export const selectedTab = ref<number | null>(null)
 
-/**
- * 初始化 `tabStorage`
- */
 function initStore() {
   const tabStr = localStorage.getItem(TAB_STORAGE_KEY)
   if (!tabStr) {
@@ -40,9 +36,6 @@ function initStore() {
 }
 initStore()
 
-/**
- * 从 `storage` 获取 `tab`
- */
 export function getTabList(): TabItem[] {
   const tabStr = localStorage.getItem(TAB_STORAGE_KEY)
   if (!tabStr) {
@@ -52,9 +45,6 @@ export function getTabList(): TabItem[] {
   return JSON.parse(tabStr)
 }
 
-/**
- * 从 `storage` 获取 `todo`
- */
 export function getTodoList(): TodoItem[] {
   const todoStr = localStorage.getItem(TODO_STORAGE_KEY)
 
@@ -81,9 +71,6 @@ export function setTabList(data: TabItem[]) {
   ]))
 }
 
-/**
- * 删除缓存中`tab` 相关的 `todo`
- */
 export function removeTabEffect(tab: TabItem) {
   const todoStr = localStorage.getItem(TODO_STORAGE_KEY)
   if (!todoStr) return
